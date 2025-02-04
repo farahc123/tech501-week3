@@ -1,17 +1,16 @@
 # SSHing into GitHub
 
 - [SSHing into GitHub](#sshing-into-github)
-  - [High-level steps of Tuesday tasks](#high-level-steps-of-tuesday-tasks)
+  - [High-level explanation and steps of Tuesday tasks](#high-level-explanation-and-steps-of-tuesday-tasks)
   - [Generating SSH key-pair](#generating-ssh-key-pair)
   - [Registering public key on GitHub](#registering-public-key-on-github)
   - [Registering the private key on our local machine](#registering-the-private-key-on-our-local-machine)
   - [Creating test repo](#creating-test-repo)
   - [To test connection manually](#to-test-connection-manually)
   - [First Tuesday afternoon task](#first-tuesday-afternoon-task)
-  - [Second Tuesday afternoon task](#second-tuesday-afternoon-task)
 
 
-## High-level steps of Tuesday tasks
+## High-level explanation and steps of Tuesday tasks
 
 - In the past, we have been authenticating our local machine and GitHub via HTTPS in order to push commits
 - Now, we will generate a new SSH key-pair to SSH into GitHub from our local machine
@@ -26,11 +25,11 @@
 
 - We want to create a new SSH key-pair because it's more secure to use a different key for different resources
 - Using the SSH protocol, we can connect and authenticate to remote servers and services like GitHub without giving our username and personal access token each time
-- Steps:
-  1. Navigate into ~/.ssh folder
+- **Steps**:
+  1. Navigate into *~/.ssh *folder
   2. Run `ssh-keygen -t rsa -b 4096 -C "fcheded@gmail.com"`
   3. When prompted, name the SSH key-pair files: *farah-github-key*
-  4. Don't enter a pass phrase (i.e. just press *enter* key)
+  4. Don't enter a pass phrase (i.e. just press *Enter* key)
 
 ![alt text](images-SSH-repo/image-4.png)
 
@@ -86,19 +85,12 @@
 ![alt text](images-SSH-repo/image-11.png)
 
 ## First Tuesday afternoon task
-- Delete repo on local machine
+- **Deleted repo on local machine**
 ![alt text](images-SSH-repo/image-2.png)
-- Delete repo on GitHub
+- **Deleted repo on GitHub**
 ![alt text](images-SSH-repo/image-3.png)
-- Delete SSH key on local machine
+- **Deleted SSH key on local machine**
 ![alt text](images-SSH-repo/image-1.png)
-- Delete stored SSH key on GitHub
+- **Deleted stored SSH key on GitHub**
 ![alt text](images-SSH-repo/image-5.png)
-- Remake everything (done; see above)
-
-
-## Second Tuesday afternoon task
-- complete alert task
-- document (INCLUDE SCREENSHOT OF NOTIFICATION EMAIL PROVING I MANAGED TO TRIGGER AN ALERT AND GOT AN EMAIL) -- SET THRESHOLD LOW FOR THIS
-- submit docs by EOD
-- delete vnet, machines, action group, dashboard (newly created for this vm)
+- **Remade** everything (see above sections)
