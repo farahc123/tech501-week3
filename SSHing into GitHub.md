@@ -13,15 +13,14 @@
 
 ## High-level steps of Tuesday tasks
 
+- In the past, we have been authenticating our local machine and GitHub via HTTPS in order to push commits
+- Now, we will generate a new SSH key-pair to SSH into GitHub from our local machine
+
 1. Generate SSH keypair using RSA
 2. Register public key (essentially the padlock) on GitHub
 3. Register the private key (essentially the padlock's key) on our local machine
 4. Create SSH repo on GitHub to test SSH connection
 5. Push changes to SSH repo
-
-- In the past, we have been authenticating our local machine and GitHub via HTTPS in order to push commits
-- Now, we will generate a new SSH key-pair to SSH into GitHub from our local machine
-- why?
 
 ## Generating SSH key-pair
 
