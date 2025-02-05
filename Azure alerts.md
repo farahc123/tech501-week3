@@ -12,8 +12,8 @@
   1. Go to the particular VM's page
   2. Choose **Alerts** under the **Monitoring** tab on the sidebar
   3. Click **Create alert rule**
-  4. Define the rule (name, condition, frequency of evaluation)
-  5. Assign an action group with an action (e.g. email)
+  4. **Define** the rule (name, condition, frequency of evaluation)
+  5. Assign an **action group** with an **action** (e.g. email)
 
 ### Setting a 2% CPU alert on our app VM
 
