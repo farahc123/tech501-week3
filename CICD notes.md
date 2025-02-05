@@ -186,3 +186,7 @@ Detail on second job, showing its upstream project and console output
 
 2. Creating app VM is the same; except add HTTP and a custom TCP rule on port 3000
 
+3. Provisioning the app using git clone and `sudo`:
+  `sudo git clone https://github.com/farahc123/tech501-sparta-app repo`
+
+
