@@ -17,7 +17,6 @@
     - [Alternatives to Jenkins](#alternatives-to-jenkins)
   - [Creating our first project in Jenkins](#creating-our-first-project-in-jenkins)
   - [Create a general diagram of CICD](#create-a-general-diagram-of-cicd)
-    - [Wednesday afternoon tasks](#wednesday-afternoon-tasks)
 
 ## Note on Week 3 tasks
 
@@ -165,28 +164,3 @@ Detail on second job, showing its upstream project and console output
 ## Create a general diagram of CICD
 
 ![alt text](image.png)
-
-
-### Wednesday afternoon tasks
-
-1. Redeploy app in 2-tier architecture on AWS for testing
-   1. store keypair on AWS
-   2. see task card for details on VM size, VNet (default VPC) 
-   3. manually redeploy DB VM using code in our scripts
-   4. note region: ireland
-   - no need to tag
-   - need to manually redeploy app VM using code from past repos
-   1. post link to posts page, and stop VM
-   2. aim to get everything working and document everything to post by 3:30
-
-1. Creating db vm on aws:
-![alt text](image-8.png)
-![alt text](image-11.png)
-![alt text](image-12.png)
-
-2. Creating app VM is the same; except add HTTP and a custom TCP rule on port 3000
-
-3. Provisioning the app using git clone and `sudo`:
-  `sudo git clone https://github.com/farahc123/tech501-sparta-app repo`
-
-

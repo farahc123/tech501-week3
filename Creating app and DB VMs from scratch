@@ -1,0 +1,31 @@
+
+### Wednesday afternoon tasks
+
+1. Redeploy app in 2-tier architecture on AWS for testing
+   1. Create keypair on AWS:
+      - *Name*: *tech501-farah-aws-key.pub*
+   2. see task card for details on VM size, VNet (default VPC) 
+   3. manually redeploy DB VM using code in our scripts
+   4. note region: ireland
+   - no need to tag
+   - need to manually redeploy app VM using code from past repos
+   1. post link to posts page, and stop VM
+   2. aim to get everything working and document everything to post by 3:30
+
+2. Creating db vm on aws:
+![alt text](image-8.png)
+![alt text](image-11.png)
+![alt text](image-12.png)
+
+1. Creating app VM is the same; except add HTTP and a custom TCP rule on port 3000
+
+2. Provisioning the app using git clone and `sudo`:
+  `sudo git clone https://github.com/farahc123/tech501-sparta-app repo`
+
+
+  $ ssh -i "tech501-farah-aws-key.pem" ubuntu@ec2-3-254-152-173.eu-west-1.compute.amazonaws.com
+
+  ![alt text](image-13.png)
+
+
+
