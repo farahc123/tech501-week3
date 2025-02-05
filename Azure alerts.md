@@ -21,6 +21,7 @@
 
 1. **Create the alert**:
     - Set the condition (I've chosen 2% **CPU percentage**, with a **frequency of evaluation** of 1 minute)
+    - note: ignore the disrepancy in rule names; I created several on first try
     ![alt text](images-alerts/image-1.png)
     ![alt text](images-alerts/image-2.png)
 
