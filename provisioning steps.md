@@ -65,26 +65,14 @@
 
 `sudo systemctl reload nginx`
  
-Steps to add:
+5. Connecting the VMs together:
 
-# Connect to the mongodb server
-export DB_HOST=mongodb://<db_private_ip>:27017/posts
- 
-# Change directory to the app
-cd tech501-sparta-app/app
- 
-# Install npm packages, check db connection, clearing and reseeding (populating) the database
-npm install
- 
-# Start the node app in backround with pm2
-npm start app
- 
-# Check if all commands were successful
-if [ $? -eq 0 ]; then
-  echo "Deployment successful!"
-else
-  echo "Deployment failed!"
-  exit 1
+   1. On the app VM, navigate into the app folder and run: 
+`export DB_HOST=mongodb://<db_private_ip>:27017/posts`
 
- 
-app not working now I sed-ed nginx config
+   2. Start the node app in backround with npm:
+`npm start app`
+
+   3. Visit the */posts* page 
+
+note that my app page isn't working once I set up the reverse proxy
