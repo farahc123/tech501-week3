@@ -17,23 +17,23 @@
 
 ### Setting a 2% CPU alert on our app VM
 
-- This is the dashboard showing CPU metrics **pre-benchmarking**: ![alt text](image.png)
+- This is the dashboard showing CPU metrics **pre-benchmarking**: ![alt text](images-alerts/image.png)
 
 1. **Create the alert**:
     - Set the condition (I've chosen 2% **CPU percentage**, with a **frequency of evaluation** of 1 minute)
-    ![alt text](image-4.png)
-    ![alt text](image-2.png)
+    ![alt text](images-alerts/image-1.png)
+    ![alt text](images-alerts/image-2.png)
 
 2. Create/assign an **action group** that emails me when the alert rule is triggered:
-    ![alt text](image-3.png)
+    ![alt text](images-alerts/image-3.png)
 
 3. Use **ApacheBench** to send requests to the app VM to raise the CPU usage and trigger the rule:
    - `ab -n 1000 -c 100 [public IP of app VM]` 
 
 4. Receive **email notification**:
-    ![alt text](image-5.png)
+    ![alt text](images-alerts/image-5.png)
 
-    ![alt text](image-7.png)
+    ![alt text](images-alerts/image-7.png)
 
 - This is the CPU percentage graph **post-benchmarking**:
-  ![alt text](image-6.png)
+  ![alt text](images-alerts/image-6.png)
