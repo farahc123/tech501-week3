@@ -1,13 +1,13 @@
 # Steps to deploy 2-tier architecture in AWS
 
-1. Create DB app instance (i.e. VM):
+1. Create DB app instance (i.e. VM) -- the optiosn here are different to Azure:
    - name
    - Ubuntu 22.04 LTS
    - t3.micro
    - create keypair: AWS will give the private key contents; download and securely store; use a bash command to work out the public key and store this too
    - Use default network (VPC) and subnet
    - Create security group, allowing SSH from anywhere for testing purpose
- 2. Provision app VM:
+ 2. Connect via SSH (this looks a little different on Azure) and provision app VM:
     1. update and upgrade packages
     2. install gnupg curl, which we will use to download  gpg key
     3. create file list
@@ -25,7 +25,7 @@
 3. Create app VM:
    - Same as above, except add an inbound HTTP rule to the NSG as well as a custom TCP rule on port 3000
 
-4. Provision app VM:
+4. Connect to app VM via SSH and provision it:
 
     1. Update package list and install them:
     `sudo apt update && sudo apt upgrade -y`
