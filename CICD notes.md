@@ -18,7 +18,6 @@
   - [Creating our first project in Jenkins](#creating-our-first-project-in-jenkins)
   - [Create a general diagram of CICD](#create-a-general-diagram-of-cicd)
   - [Thurs morning notes](#thurs-morning-notes)
-  - [to fix my blocker:](#to-fix-my-blocker)
 
 ## Note on Week 3 tasks
 
@@ -126,6 +125,9 @@
 
 ### Disadvantages of Jenkins
 
+- plugins are third-party, which means quality can vary
+- plugins can be abandonware, i.e. they are no longer updated and support not provided which can be 
+
 ### Stages of Jenkins
 
 ### Alternatives to Jenkins
@@ -175,7 +177,7 @@ Detail on second job, showing its upstream project and console output
 ## Thurs morning notes
 
 - git is a distributed version control system
-- add . -- stage which is saying what we want to go into next commit
+- `add .` -- stage which is saying what we want to go into next commit
 - commit is saving a snapshot of those staged changes
 - push is transferring the commit history to the branch of the remote repo
 - devs need to do a git pull to merge changes from the next branch up (feature or main) before they can push their code, so their code is implemented into the latest version of the code that users are using
@@ -196,4 +198,6 @@ Detail on second job, showing its upstream project and console output
 
 
 to fix my blocker:
-- 
+- ensure the IP address used to visit the app page isn't HTTPS (as AWS sends me to this by default)
+
+![alt text](images-jenkins/jenkins-cicd-pipeline-for-our-app.drawio.png)
