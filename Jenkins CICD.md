@@ -102,12 +102,55 @@
  
 ## Setting up Job 2 on Jenkins
 
-- BLOCKER FACED (double-checked GitHub has write access for this SSH key and it does)
-![alt text](image-21.png)
+1. On Jenkins, choose **New job** from the left sidebar
+2. **Name**: *tech501-farah-job2-ci-merge*
+3. Choose **Freestyle project**
+4. **Description**: *Merging changes from the dev branch of my GitHub repo to the main branch.*
+5. Enable **Discard old builds**
+   1. Set *Max # of builds* to **5**
+6. Enable **Github project**:
+  - **URL**: https://github.com/farahc123/tech501-sparta-app-CICD/ -- be sure to **remove *.git*** from end because Jenkins doesn't like it and **add / at end**
+7. **Source code management tab**:
+     1. Enable **GitHub**
+        1. **Repository URL (this needs to be in SSH format)**: git@github.com:farahc123/tech501-sparta-app-CICD.git
+        2.from **Credentials** dropdown, choose: farah-sparta-app-jenkins-to-github **Credentials** dropdown
+      - ![alt text](image-18.png)
+     2. **Branch Specifier**: \**/main* and */dev*
+8. Build triggers tab:
+   1. Enable Build after other projects are built:
+      - Under **Projects to watch**, choose *tech501-farah-job1-ci-test*
+      - Choose **Trigger only if build stable**
+9.  **Build Environment tab**:
+     1. Enable **Provide Node & npm bin/ folder to PATH:**
+        - Choose ***NodeJS version 20***
+        - Enable **SSH agent** and choose my credentials:
+      ![alt text](image-24.png)
+10. **Build Steps tab**:
+      1.  Choose **Execute shell** and enter:
+>`#!/bin/bash`
+>
+>`git checkout dev # switch to "dev" branch if not already`
+>
+>`git merge main # this optional command is being used to resolve any conflicts if i pushed any changes to my "main" but "dev" doesn't have that commit`
+>
+>`git checkout main # switch to "main"`
+>
+>`git merge --no-ff dev # merge the "dev" branch into "main"`
+>
+>`git push origin main # push the changes to the remote main branch`
+11.  **Save**
+12. Go back into Job 1's configuration, and **add Job 2 as a Post-Build Step**  
+13.  Back on Job 2, **Build now** (may need to wait for it to run, and may fail if other people are running jobs on port 3000)
+  - Example of successful build page:
+    ![alt text](image-25.png)
+  - Example of successful build console output:
+   ![alt text](image-26.png)
 
-**to do after blocker is resolved**:
+- Note that I initially had a permissions error running Job 2, but this was because I hadn't enable SSH Agent in the configuration    
 
-1. test job 2 a couple of times (edit readme file for this)
+**to do**
+
+1. test job 2 a couple of times (edit readme file on dev branch for this)
 
 ## Setting up Job 3 on Jenkins
 
