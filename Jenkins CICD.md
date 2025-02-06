@@ -145,12 +145,14 @@
     ![alt text](image-25.png)
   - Example of successful build console output:
    ![alt text](image-26.png)
+  - Example of changes to dev branch automatically pushed to GitHub main branch:
+  ![alt text](image-27.png)
 
 - Note that I initially had a permissions error running Job 2, but this was because I hadn't enable SSH Agent in the configuration    
 
 **to do**
 
-1. test job 2 a couple of times (edit readme file on dev branch for this)
+1. test job 2 a couple more times (edit readme file on dev branch for this)
 
 ## Setting up Job 3 on Jenkins
 
