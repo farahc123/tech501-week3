@@ -30,8 +30,10 @@
     1. Update package list and install them:
     `sudo apt update && sudo apt upgrade -y`
  
-    2. Install nginx:
+    2. Install nginx and verify status:
 `sudo apt install nginx -y`
+`sudo systemctl status nginx`
+
     3. Enabling and starting nginx
 `sudo apt enable nginx`
 `sudo systemctl start nginx`
@@ -39,13 +41,16 @@
     4. Installing *npm* and *nodejs*
 `sudo DEBIAN_FRONTEND=noninteractive bash -c "curl -fsSL https://deb.nodesource.com/setup_20.x | bash -"`
 `sudo DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs` 
+     - veryifying their installation: `node -v` `npm -v`
  
     5. Installing pm2
 `sudo npm install -g pm2`
  
-    6. Cloning the nodejs app repo (using Sameem's for now while I figure out issues with mine)
+    6. Navigate to /, and clone the nodejs app repo (using Sameem's for now while I figure out issues with mine)
 `git clone https://github.com/sameem97/tech501-sparta-app.git`
- 
+        - enter the app folder, run `npm install` to install the package to the app
+        - Check app is working with `npm start` from within the app folder and visiting the public IP of the app VM with *:3000*
+   
     7. Creating a backup of nginx configuration file:
 `cd /etc/nginx/sites-available/`
 `cp default default.backup` 
@@ -53,9 +58,9 @@
     8. Editing nginx configuration file to apply reverse proxy
 `sudo nano /etc/nginx/sites-available/default`
 
-- Removing *try_files* line  and replacing with:
+- Removing *try_files* line  and replacing with (ensure bracket remains closed on next line):
 
-`proxy_pass http://localhost:3000;}`
+`proxy_pass http://localhost:3000;`
 
     9. Checking if *nginx* config file syntax is okay:
 
@@ -65,7 +70,9 @@
 
 `sudo systemctl reload nginx`
  
-5. Connecting the VMs together:
+    11. Check app is working on app VM's public IP url
+   
+1. Connecting the VMs together:
 
    1. On the app VM, navigate into the app folder and run: 
 `export DB_HOST=mongodb://<db_private_ip>:27017/posts`

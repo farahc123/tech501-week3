@@ -17,6 +17,8 @@
     - [Alternatives to Jenkins](#alternatives-to-jenkins)
   - [Creating our first project in Jenkins](#creating-our-first-project-in-jenkins)
   - [Create a general diagram of CICD](#create-a-general-diagram-of-cicd)
+  - [Thurs morning notes](#thurs-morning-notes)
+  - [to fix my blocker:](#to-fix-my-blocker)
 
 ## Note on Week 3 tasks
 
@@ -104,7 +106,12 @@
 
 ## The difference between CD and CDE
 
-- **Continuous deployment**: 
+- **Continuous delivery**: 
+
+- rather than deployed, might mean the code needs to be delivered to a testing environment
+- often, it's about having it all tested and ready to be deployed when approved/given the green light; not necessarily that it will be deployed to production (i.e. end users) straight away
+- in contrast,deployment usually means deployed straight to production and end users  
+- whether an org uses CDeployment or CDelivery depends on its culture -- i.e. if CDeployment, its users often expect to get updates frequently, and expect to get bugs that they will then routinely quickly feedback for quick resolution
 
 ## Jenkins
 
@@ -164,3 +171,29 @@ Detail on second job, showing its upstream project and console output
 ## Create a general diagram of CICD
 
 ![alt text](image.png)
+
+## Thurs morning notes
+
+- git is a distributed version control system
+- add . -- stage which is saying what we want to go into next commit
+- commit is saving a snapshot of those staged changes
+- push is transferring the commit history to the branch of the remote repo
+- devs need to do a git pull to merge changes from the next branch up (feature or main) before they can push their code, so their code is implemented into the latest version of the code that users are using
+- if you run the CICD pipeline on the master node of your Jenkins server, it could impact the file system and mess everything up if something goes wrong; so you want to use worker/agent nodes that will be spun up to execute the jobs
+- 3 jobs for agent nodes
+- job 1:
+  - unit test the code, which has been pushed on the developer branch
+- job 2, if job 1 is successful:
+  - merge code to main branch
+- job 3, if job 2 successful (**CD**):
+  - deploy code to where users can use it (in our case, to an EC2 instance/VM)
+
+- for jobs 1 and 2, Jenkins needs credentials to read code in dev branch of github repo, as well as write access to merge the dev branch to the main branch of github repo 
+  - this is SSH credentials to GitHub repo
+- it will also need the private SSH key to our AWS/Azure SSH keypair to deploy the code to VMs for job 3
+
+![alt text](image-16.png)
+
+
+to fix my blocker:
+- 
