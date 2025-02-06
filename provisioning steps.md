@@ -35,7 +35,7 @@
 `sudo systemctl status nginx`
 
     3. Enabling and starting nginx
-`sudo apt enable nginx`
+`sudo systemctl enable nginx`
 `sudo systemctl start nginx`
  
     4. Installing *npm* and *nodejs*
@@ -43,34 +43,32 @@
 `sudo DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs` 
      - veryifying their installation: `node -v` `npm -v`
  
-    5. Installing pm2
-`sudo npm install -g pm2`
  
-    6. Navigate to /, and clone the nodejs app repo (using Sameem's for now while I figure out issues with mine)
+    5. Navigate to /, and clone the nodejs app repo (using Sameem's for now while I figure out issues with mine)
 `git clone https://github.com/sameem97/tech501-sparta-app.git`
         - enter the app folder, run `npm install` to install the package to the app
         - Check app is working with `npm start` from within the app folder and visiting the public IP of the app VM with *:3000*
    
-    7. Creating a backup of nginx configuration file:
+    6. Creating a backup of nginx configuration file:
 `cd /etc/nginx/sites-available/`
 `cp default default.backup` 
 
-    8. Editing nginx configuration file to apply reverse proxy
+    7. Editing nginx configuration file to apply reverse proxy
 `sudo nano /etc/nginx/sites-available/default`
 
 - Removing *try_files* line  and replacing with (ensure bracket remains closed on next line):
 
 `proxy_pass http://localhost:3000;`
 
-    9. Checking if *nginx* config file syntax is okay:
+    8. Checking if *nginx* config file syntax is okay:
 
 `sudo nginx -t`
 
-    10. Reloading *nginx* to put above config file edit into action
+    9. Reloading *nginx* to put above config file edit into action
 
 `sudo systemctl reload nginx`
  
-    11. Check app is working on app VM's public IP url
+    10. Check app is working on app VM's public IP url
    
 1. Connecting the VMs together:
 
@@ -82,4 +80,10 @@
 
    3. Visit the */posts* page 
 
-note that my app page isn't working once I set up the reverse proxy
+
+- Proof of app front page working with reverse proxy: 
+
+![alt text](image-23.png)
+
+To do:
+- set up database connection and validate
