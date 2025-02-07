@@ -237,7 +237,7 @@
 ![alt text](image-39.png)
 
 - However the app page has now updated (note timestamp of latest index.ejs edit)
-![alt text](image-37.png)
+![alt text](image-38.png)
 
 
 ## To do:
