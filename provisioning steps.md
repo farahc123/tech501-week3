@@ -6,7 +6,7 @@
    - t3.micro
    - create keypair: AWS will give the private key contents; download and securely store; use a bash command to work out the public key and store this too
    - Use default network (VPC) and subnet
-   - Create security group, allowing SSH from anywhere for testing purpose
+   - Create security group, allowing SSH from anywhere for testing purpose and a custom TCP inbound rule on port 27017 (which is MongoDB's port -- **this is allowed by default on Azure between VMs on the same Vnet but in AWS it needs to be added manually**) 
  2. Connect via SSH (this looks a little different on Azure) and provision app VM:
     1. update and upgrade packages
     2. install gnupg curl, which we will use to download  gpg key
@@ -85,5 +85,6 @@
 
 ![alt text](image-23.png)
 
-To do:
-- set up database connection and validate
+- Proof of app posts page working:
+  
+![alt text](image-28.png)

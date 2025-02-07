@@ -5,8 +5,9 @@
    1. Create keypair on AWS:
       - *Name*: *tech501-farah-aws-key.pub*
    2. see task card for details on VM size, VNet (default VPC) 
-   3. manually redeploy DB VM using code in our scripts
-   4. note region: ireland
+   3. add custom TCP inbound rule on port 27017 (needs to be done explicitly on AWS; on Azure it accepts connections between VMs on same Vnet but not on AWS)
+   4. manually redeploy DB VM using code in our scripts
+   5. note region: ireland
    - no need to tag
    - need to manually redeploy app VM using code from past repos
    1. post link to posts page, and stop VM
