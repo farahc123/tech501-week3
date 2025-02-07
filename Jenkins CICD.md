@@ -11,6 +11,7 @@
   - [Setting up Job 2 on Jenkins](#setting-up-job-2-on-jenkins)
   - [Setting up Job 3 on Jenkins](#setting-up-job-3-on-jenkins)
   - [Blockers for creating Job 3:](#blockers-for-creating-job-3)
+  - [To do:](#to-do)
   - [Code store; probably not needed but keeping from here:](#code-store-probably-not-needed-but-keeping-from-here)
 
 
@@ -225,12 +226,23 @@
 `ssh ubuntu@ec2-34-255-121-219.eu-west-1.compute.amazonaws.com`
 ![alt text](image-34.png)
 
-- I don't think my Job 2 is working correctly but I have manually started Job 3 (after Job 1 and 2) and it is not completing as below:
+- My Job 2 wasn't working correctly so I manually started Job 3 (after Job 1 and 2) and the job didn't complete as below:
   ![alt text](image-35.png)
   ![alt text](image-36.png)
 
-- But the app page has successfully updated nonetheless:
+- But the app page successfully updated nonetheless:
   ![alt text](image-37.png)
+
+- I fixed Job 2, but now Job 3 isn't completing due to the port being in use
+![alt text](image-39.png)
+
+- However the app page has now updated (note timestamp of latest index.ejs edit)
+![alt text](image-37.png)
+
+
+## To do:
+
+edit documentation for Job 2 since I have changed these steps now 
 
 ---
 
