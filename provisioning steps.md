@@ -1,6 +1,6 @@
 # Steps to deploy 2-tier architecture in AWS
 
-1. Create DB app instance (i.e. VM) -- the optiosn here are different to Azure:
+1. Create DB app instance (i.e. VM) -- the options here are different to Azure:
    - name
    - Ubuntu 22.04 LTS
    - t3.micro
@@ -75,10 +75,11 @@
    1. On the app VM, navigate into the app folder and run: 
 `export DB_HOST=mongodb://<db_private_ip>:27017/posts`
 
-   2. Start the node app in backround with npm:
-`npm start app`
+   2. Start the node app with npm
+`npm start` OR `sudo npm install pm2 -g` and `pm2 start app.js`
 
    3. Visit the */posts* page 
+   4. if using pm2, run `pm2 stop app.js` after
 
 
 - Proof of app front page working with reverse proxy: 
@@ -88,3 +89,8 @@
 - Proof of app posts page working:
   
 ![alt text](image-28.png)
+
+### Blocker faced
+
+- I thought my app wasn't working, but it turned out that when you click on the link to the public IP of an EC2 instance on AWS, it adds `https` to the front of the URL by default, but we don't have that enabled for our app
+- In future, ensure the IP address used to visit the app page isn't HTTPS
