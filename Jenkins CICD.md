@@ -257,18 +257,30 @@ to fix my blocker:
         1. **Repository URL (this needs to be in SSH format)**: git@github.com:farahc123/tech501-sparta-app-CICD.git
         2. From **Credentials** dropdown, choose: farah-sparta-app-jenkins-to-github
       - ![alt text](image-18.png)
-     2. **Branch Specifier**: \**/main*
+       3. **Branch Specifier**: **/main*
    8. **Build triggers tab**:
-   9. Enable **Build after other projects are built**:
-      - Under **Projects to watch**, choose *tech501-farah-job2-cd-merge*
-      - Choose **Trigger only if build stable**
-   10. **Build Environment tab**:
-     11. Enable **Provide Node & npm bin/ folder to PATH:**
-        - Choose ***NodeJS version 20***
-      12. Enable **SSH agent** plugin and add my AWS credentials as well as choose my GitHub credentials:
+      1. Enable **Build after other projects are built**:
+         - Under **Projects to watch**, choose *tech501-farah-job2-cd-merge*
+         - Choose **Trigger only if build stable**
+   9.  **Build Environment tab**:
+         1.  Enable **Provide Node & npm bin/ folder to PATH:**
+        2. Choose ***NodeJS version 20***
+          3.  Enable **SSH agent** plugin and add my AWS credentials:
       ![alt text](image-31.png)
-   11. **Build Steps tab**:
-       1.  Choose **Execute shell** and run: [**need to confirm correct script here**]
+   10. **Build Steps tab**:
+       1.  Choose **Execute shell** and run:
+  >`scp -o StrictHostKeyChecking=no -r /var/jenkins/workspace/farah-job2-ci-merge/nodejs20-sparta-test-app/app/ ubuntu@ec2-34-255-121-219.eu-west-1.compute.amazonaws.com:/home/ubuntu`
+  - SCPs the folder resulting from my job 2 (i.e. in its workspace) to the EC2 instance
+  - note the use of the `-o` option to allow turning off of Strict Host Key Checking (i.e. bypass the `yes` input required to SSH into a machine for the first time)
+> `ssh ubuntu@ec2-34-255-121-219.eu-west-1.compute.amazonaws.com <<'EOF'`
+>     
+>     cd /home/ubuntu/nodejs20-sparta-test-app/app
+> 
+>     npm install
+>
+>     npm start
+>   - doesn't need SSH key specifying because I'm using the SSH agent configured above
+>   - note the `<<'EOF'`, which allows code to be indented below and performed in the machine SSHed into 
 
 ## Blockers for creating Job 3:
 
