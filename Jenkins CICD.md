@@ -14,7 +14,8 @@
   - [Setting up Job 2 on Jenkins](#setting-up-job-2-on-jenkins)
   - [Setting up Job 3 on Jenkins](#setting-up-job-3-on-jenkins)
   - [Steps for Job 3](#steps-for-job-3)
-    - [Explanation of this code](#explanation-of-this-code)
+    - [Proof that my pipeline works](#proof-that-my-pipeline-works)
+    - [Explanation of the code executed in Job 3's build step](#explanation-of-the-code-executed-in-job-3s-build-step)
   - [Blockers for creating Job 3:](#blockers-for-creating-job-3)
 
 
@@ -266,7 +267,10 @@
 
  `EOF`
 
- ### Explanation of this code
+### Proof that my pipeline works
+Change made: ![alt text](image-41.png)
+
+ ### Explanation of the code executed in Job 3's build step
  
   >`scp -o StrictHostKeyChecking=no -r /var/jenkins/workspace/farah-job2-ci-merge/nodejs20-sparta-test-app/app/ ubuntu@ec2-34-255-121-219.eu-west-1.compute.amazonaws.com:/home/ubuntu`
 >  - SCPs the folder resulting from my job 2 (i.e. in its Jenkins workspace) to the EC2 instance
